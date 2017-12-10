@@ -1,0 +1,19 @@
+\documentclass{book}
+
+\title{Combinatorics}
+\author{yan}
+\date{\today}
+
+\usepackage{amsmath}
+\newtheorem{thm}{Def}
+\begin{document}
+
+\frontmatter
+\maketitle
+\tableofcontents
+\part{Preparation Knowledge}
+\chapter{Set, Rlation and function}
+\begin{
+\mainmatter
+
+\end{document}

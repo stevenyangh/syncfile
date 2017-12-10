@@ -1,0 +1,15 @@
+\documentclass{book}
+
+\title{Combinatorics Exercises}
+\author{yan}
+\date{\today}
+\usepackage{amsmath}
+\begin{document}
+
+\frontmatter
+\maketitle
+\tableofcontents
+
+\mainmatter
+
+\end{document}

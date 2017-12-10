@@ -1,0 +1,29 @@
+\documentclass{book}
+
+\title{Abstract Algebra}
+\author{yan}
+\date{\today}
+
+\usepackage{amsmath}
+\newtheorem{def}{Define}[chapter]
+\begin{document}
+
+\frontmatter
+\maketitle
+\tableofcontents
+\part{Preparation Knowledge}
+\chapter{set}
+There is  general form to note a set:
+\begin{equation}
+  A = { a \in S | P(a)}
+\end{equation}
+
+\mainmatter
+\part{Group Theory}
+\chapter{}
+
+\chapter{Concept of Group}
+\part{Ring Theory}
+\part{Field Theory and Glois Theory}
+\part{Appendix}
+\end{document}

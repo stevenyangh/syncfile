@@ -1,0 +1,7 @@
+set theory start with a question that "what is what?" & "this or that?"
+
+* basic use
+  + P.s.
+    - no same element in one set.
+    - translation from language description to set theory description
+      - A and B are c :: C={x|c(x)=1},(A \belongto C)\and(B \belongto C) 
