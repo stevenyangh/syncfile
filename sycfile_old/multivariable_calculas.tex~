@@ -1,0 +1,10 @@
+There is a mapping on $U \in \mathbf{R}^n$ noted $\mathbf{f} U: \rightarrow \mathbf{R}^m$. When a point $\mathbf{p}$ inside U suffice following requirements, $\mathbf{f}$ is derivitable on point $\mathbf{p}$:
+\begin{equation}
+  \lim_{h \to 0}
+  \begin{fraxtion}
+      {1}{|h|}
+  \end{fraction}
+  \left(
+
+  \right)
+\end{equation}
