@@ -1,0 +1,135 @@
+#+STARTUP: indent
+2017.12.04
+*for XDF class*
+* integral writting
+** question 
+- read(300words 1(topic)+3(points))
+- listening(2min lecture)
+** requirment
+20min 150-225words
+** scoring
+1-5
+** TODO hacking(konw how tpo 27 39 42 48 49/write tpo 33 39(done) 49)
+*** listening part
+- require precision
+- shorter than listing test
+**** framework of argueing against the text
++ first paragraphe: nothing
++ following para.
+  - straight against: opposite point + evidence
+  - provide new evidence: bullshit!TOO WEAK! -> evidence in reading + give new evidence + opposite point
+  - agree point / disagree relationship between thesis and that point: agree partly, oppose in a hidden way 
+*** reading part
+- background+thesis
+- p1+evi-
+- p2+evi-
+- p3+evi-
+*be awared: points are related to thesis!!!*
+*** write
+- adapt thesis & points & evidence in reading
+- *copy* the t & p & e in listening as much as possible
+4 paragraphes, just like article and lecture(end paragraphe for option)
+can tolerate a few mistakes that does not matters much
+lecture: in priority only involeve article when mentioned in listening.
+**** what is a nessasary point?
+find nessasary logical relations(can't be erased, otherwise proof is not strict) -> organize  
+**** structure
+***** explaine a view(70 per cent)
++ content
+  - R: background+a view+3xreasons
+  - L: controversy view+reasons(3)
+****** templete 
+***** hypo/plan
++ hypothesis
+  - R: background(strange phenomenon, important)+a question+3x(hypothesis+evidence)
+  - L: all wrong+3xevidence(to prove it wrong)
++ plan 1
+  - R:background problem+a plane+3x(why possible)
+  - L: -
++ plan 2
+  - R:background problem+a question(how to?)+3x(plane)
+  - L: -
+****** templete
+* individual writting(proove youself, don't mind others)(know Xpredictor16 prediction)
+** question(1/2 & 1/3 & agree/dis(contract now/before now/future) & most & abstract logic chain etc.)
+*** major modes
+**** value judgement
+- > should neccesary important prefer
+- find consequences after hypothetic changes happened
+**** proove a phenomenon
+- > give a phen, let you proove whether it exists or not.
+- find reason/evidence to prove it(reason must aim at the question directly)
+*** topic (permute,conjourn)
+- government
+- environment
+- art
+- history
+- sport
+- family
+- friendship
+- education
+- career life
+- technology
+*** specific reasons and examples to support your answer
+*** don't use memorized examples, use personnal life
+** reqirement
+30min 300+words
+** scoring
+1-5
+** hacking
+0 tolerance to mistake
+** structure
++ passage
+  - ^ 1 opening
+  - ^ 3 body: point+()
+  - _ 1 conclusion(in a essay, a paragraphe must have more than one sentence) 
++ paragraphe
+*** passage
+**** opening(50 words)
+- background
+  now,society is ... + involve the question + personal opinion(straight) + linker-><-
+- or make a target, shot it
+  like above, howeevr opposite
+- or "teach a lesson"
+  give a defination(objective), real condition in society, compare{
+  - the same 
+  - noooooo!
+  }+the question+personnal,like above.
+
+**** body(supportive p(120-150worss)&compromisive p.(70-80words))
++ ideal structure
+  - s s s
+  - c s s
+  - s s c
+***** supportive paragraph
+point+explaination+example
++ point: brief, highly concluded
++ explaination: relation between point and main idea of the passage(why/what will be caused)
+  - deduction: complete the logic chaine(main idea -> a -> b -> point or invert)
+  - controlled experiment: compare with balabalabala
++ example: specific, concrete(detailed)
+  - your personnal experience + attitude
+  - make up one according to your explaination
+    - details: time, place, figure, thought
+***** comppromisive paragraph
++ first
+  - admitt opposite opinion is reasonable 
+  - admitt oneself's opinion has problem
++ then
+  - fight back
++ structure
+  - opposite opinion,explaination + refutation + emphasize your opinion again(towards the opening paragraph)
+  - refutation: choose one of the following path
+    - there is a problem
+    - the reason is not true(at least sometime)
+    - replacable
+    - not possible
+    - doesn't matter
++
+**** ending
+
+* temp
+Now..........
+
+Learning history will help students become more responsible to his life, to study and to his nation. When a student takes a history lesson, he will learn origin and consequences of conflicts in history, and then he will realize periods of darkness wake up as a human to stop it, he will realize moments where humanity shines and illustrat future and persue the pioneers as well. This is the process that helps a man to build his responsibility. 
+** TODO write a example for ^
