@@ -1,1 +1,9 @@
-study
+/"Organic chemistry is chemistry that studies carbon compound."/
+
+There are varios kinds of organic molecules, most of which has a typical carbon backbone.
+
+
+
+
+* pyrolysis of alkene
+  Under temprature of 800^oC, without oxygen, alkenes will pyrolysis, which means 
