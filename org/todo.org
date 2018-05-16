@@ -1,0 +1,11 @@
+#+STARTUP:indent
+#+SEQ_TODO: TODO(t) START(s!) UNRANKED(r!) DELAY(d@/!) | ALL_DONE(a!) ABORT(f@/!)
+* 2018
+** 1
+*** 28
+**** plan 
++ first stage(1.28-2.11)
+  - 6h chinese
+  - 2h math
+  - 4h else
++ second stage(2.11-)
