@@ -1,2 +1,14 @@
 * 
-אבגדה
+  there are 22 letters in hebrew
+  - letters
+    א
+    ב 
+    ג
+    ד
+    ה
+    ו
+  ז
+  ח
+  ט
+  י
+  כ
