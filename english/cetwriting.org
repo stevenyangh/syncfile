@@ -1,0 +1,15 @@
+* information
+* situation
+* sayings
+** principle
+  - to proof a saying, the following evidence are
+recommanded.
+    - wise of human
+    - static data
+    - example
+  - to organize the proof,the following methodes are recomanded
+    - plain explaination
+    - 
+* manga
+* diagram
+* outline

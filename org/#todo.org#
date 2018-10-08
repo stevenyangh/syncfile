@@ -1,0 +1,16 @@
+#+STARTUP:indent
+#+SEQ_TODO: TODO(t) START(s!) UNRANKED(r!) DELAY(d@/!) | ALL_DONE(a!) ABORT(f@/!)
+* 2018
+** 9
+*** 25
+**** plan
+class:
+| 08:00 - 09:50 | english     | s403 |
+| 10:10 - 12:00 | adv_math    | n113 |
+| 13:00 - 16:20 | programming | n309 |
+
+self_dev
+| 12:30 - 12:50 | 46level_info  | n309    |
+| 16:40 - 18:00 | math_analysis | library |
+| 18:40 - 21:30 | SICP          | library |
+
