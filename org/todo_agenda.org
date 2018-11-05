@@ -1,0 +1,5 @@
+#+STARTUP:indent
+#+SEQ_TODO: TODO(t) START(s!) UNRANKED(r!) DELAY(d@/!) | ALL_DONE(a!) ABORT(f@/!)
+
+only long term work and periodical work will be held in this file
+* TODO personal development plan
