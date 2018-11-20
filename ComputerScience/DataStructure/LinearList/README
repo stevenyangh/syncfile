@@ -1,0 +1,41 @@
+
+
+For link list and sequence list
+the function may have the same name and same operation in human's perspective while act different in program.
+
+ADT list {
+  data:
+    D={ a(i) | a(i) /belongto Elemset,i=1,2,3...n,n>=0}
+  relation:
+    R={ <a(i-1),a(i)> | a(i-1),a(i) /belongto D,i=1,2,3...,n}
+  operation:
+  initlist(&l)
+    requirment: no
+    consequnce: creat a empty list l
+  destroylist(&l)   
+    requirment: list l has already exist
+    consequence: destroy list l
+  clearlist(&l)   
+    requirment: list l has already exist
+    consequence: empty list l
+  listlenth(l)   
+    requirment: list l has already exist
+    consequence: return the number of elements in list l
+  getelem(l,i,&e)     
+    requirment: list l has already exist while 1<=i<=listlenth(l)
+    consequence: return value of the i th element in list l to variable e
+  locateelem(l,e)
+    requirment: list l has already exist
+    consequence: find the element with the same value as e in list l and return its position
+  listinsert(&l,i,e)
+    requirment: list l has already exist while 1<=i<=listlenth(l)
+    consequence: add e before the i th element in list l
+  listdelete(&l,i,&e)
+    requirment: list l has already exist while 1<=i<=listlenth(l)
+    consequence: delete the i th element in the list l ,return its value to e while listlenth(l)-1
+  traverselist(l)
+    requirment:list l has already exist
+    consequence: access every element in list l in order
+}ADT list
+
+
