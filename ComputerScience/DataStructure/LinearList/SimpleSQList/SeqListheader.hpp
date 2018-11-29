@@ -127,14 +127,19 @@ DATATYPE ListDelete_sq(Sqlist &L, int i)
     return temp;
 }
 
-DATATYPE ListTraverse_sq(Sqlist L)
+void ListTraverse_sq(Sqlist L)
 {
-    std::cout << "List length:" << L.ElemLength << std::endl;
-
-    DATATYPE *p = l.elem;
-    for(int i = 1; i < L.ElemLength; i++, p++)
-	std::cout << *p << " ";
-    std::cout << *p << std::endl << std::endl;
+    if(L.ElemLength > 0 && L.elem != nullptr)
+    {
+	std::cout << "List length:" << L.ElemLength << std::endl;
+	
+	DATATYPE *p = L.elem;
+	for(int i = 1; i < L.ElemLength; i++, p++)
+	    std::cout << *p << " ";
+	std::cout << *p << std::endl;
+    }
+    else
+	Error("");
 }
 
 #endif
