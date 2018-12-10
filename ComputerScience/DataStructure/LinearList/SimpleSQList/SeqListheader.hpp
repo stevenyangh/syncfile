@@ -115,13 +115,13 @@ DATATYPE ListDelete_sq(Sqlist &L, int i)
 {
     if(i < 1 || i > L.ElemLength)
 	Error("Position error");
-
+    
     DATATYPE *p = &(L.elem[i - 1]);
     DATATYPE temp = *p;
     
     for(int j = i; j < L.ElemLength; p++, j++)
 	*p = *(p + 1);
-
+    
     *p = EMPTY;
     L.ElemLength--;
     return temp;
