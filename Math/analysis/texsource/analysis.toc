@@ -1,3 +1,0 @@
-\contentsline {part}{I\hspace {1em}Limit}{1}
-\contentsline {chapter}{\numberline {1}Nature Number and Base}{3}
-\contentsline {chapter}{\numberline {2}Series}{5}
