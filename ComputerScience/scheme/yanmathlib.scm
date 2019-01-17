@@ -79,26 +79,18 @@
 		      (* rec b)))))
   (iter b n 1))
 
-(define (factorial n)
-  (define (iter product counter)
-    (if (> counter n)
-	product
-	(iter (* product counter)
-	      (+ counter 1))))
-  (iter 1 1))
-
 (define (fibonacci mode n);mode: 1 normal, 2 fast
   (cdr (transformation-family-t mode 0 1 1 0 n)))
 
 (define (gcd a b)
   (define (iter a b)
-    (if (= b 0)
-	a
-	(iter b 
-	      (remainder a b))))
-  (if (> a b)
-      (iter  a b)
-      (iter b a)))
+    (if(= b 0)
+       a
+       (iter b 
+	     (remainder a b))))
+  (if(> a b)
+     (iter  a b)
+     (iter b a)))
 					;tested, involved in other forms.
 
 (define (sqrt x accuracy)
@@ -108,9 +100,9 @@
     (< (abs (- (square guess) x)) 
        accuracy))
   (define (sqrt-iter guess)
-    (if (good-enough? guess)
-	guess
-	(sqrt-iter (improve guess))))
+    (if(good-enough? guess)
+       guess
+       (sqrt-iter (improve guess))))
   (sqrt-iter 1.0))
 
 
@@ -141,16 +133,32 @@
 ;	  (cond ((positive? )()
 			  
 (define (accumulate-sum term a next b)
-  (if (> a b)
-      0
-      (+ (term a)
-	 (accumulate-sum term (next a) next b))))
+  (define (as-iter a sum)
+    (if (> a b)
+	sum
+	(as-iter (next a) (+ sum (term a)))))
+  (as-iter a 0))
 
-(define (accumulate-sum-count term a b calc-x count); f_1 + ... + f_count
-  (if (> count 0)
-      (+ (term (calc-x count))
-	 (accumulate-sum-count term a b calc-x (- count 1)))
-      0))
+(define (accumulate-sum-count term calc-x count); f_1 + ... + f_count
+  (define (asc-iter count sum)
+    (if (> count 0)
+	(asc-iter (- count 1) (+ sum (term (calc-x count))))
+	sum))
+  (asc-iter count 0))
+
+(define (accumulate-product term a next b)
+  (define (ap-iter a product)
+    (if (> a b)
+	product
+	(ap-iter (next a) (* product (term a)))))
+  (ap-iter a 1))
+
+(define (accumulate-product-count term calc-x count); f_1 * ... * f_count
+  (define (apc-iter count product)
+    (if (> count 0)
+	(apc-iter (- count 1) (* product (term (calc-x count))))
+	product))
+  (apc-iter count 1))
 
 ;(define (pi-term a
 ;  (/ 1.0 (* a (+ a 2))));for test reason
@@ -163,13 +171,43 @@
   (define (term x)
     (* (func x) (/ (- b a) steps)))
   (accumulate-sum term a next b))
-			;havn't been tested yet.
+
+(define (factorial n)
+  (accumulate-product-count (lambda (x) x) (lambda (n) (+ n 1)) (- n 1)))
+					;havn't been tested yet.
 
 
 (define (integral-simpson func a b n);only applies to functions with 4 level derivative.
   (define (calcxn i) (/ (+ (* a (- n i)) (* b i)) n))
   (define (calcxn-half j) (/ (+ (* b (- (* 2 j) 1)) (* a (- (+ (* 2 n) 1) (* 2 j)))) 2 n))
   (/ (* (- b a) (+ (func a) (func b)
-		   (* 2 (accumulate-sum-count func a b calcxn (- n 1)))
-		   (* 4 (accumulate-sum-count func a b calcxn-half n))))
+		   (* 2 (accumulate-sum-count func calcxn (- n 1)))
+		   (* 4 (accumulate-sum-count func calcxn-half n))))
      6 n))
+
+(define (list-ref items n)
+  (define (ref-iter items i)
+    (if (< (- n 1) i)
+	(car items)
+	(ref-iter (cdr items) (+ i 1))))
+  (ref-iter items 0))
+	
+
+(define (list-length items)
+  (define (len-iter items i)
+    (if (null? items)
+	i
+	(len-iter (cdr items) (+ i 1))))
+  (len-iter items 0))
+
+(define (list-append list-1 list-2); to be adjusted to iteration version
+  (if (null? list-1)
+      list-2
+      (cons (car list-1) (list-append (cdr list-1) list-2))))
+
+(define (list-map proc items)
+  (if (null? items)
+      nil
+      (cons (proc (car items))
+	    (list-map proc (cdr items)))))
+
