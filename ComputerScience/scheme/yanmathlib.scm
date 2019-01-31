@@ -185,7 +185,7 @@
 		   (* 4 (accumulate-sum-count func calcxn-half n))))
      6 n))
 
-(define (list-ref items n)
+(define (list-ref-my items n)
   (define (ref-iter items i)
     (if (< (- n 1) i)
 	(car items)
@@ -193,21 +193,47 @@
   (ref-iter items 0))
 	
 
-(define (list-length items)
+(define (list-length-my items)
   (define (len-iter items i)
     (if (null? items)
 	i
 	(len-iter (cdr items) (+ i 1))))
   (len-iter items 0))
 
-(define (list-append list-1 list-2); to be adjusted to iteration version
+(define (list-append-my list-1 list-2); to be adjusted to iteration version
   (if (null? list-1)
       list-2
       (cons (car list-1) (list-append (cdr list-1) list-2))))
 
-(define (list-map proc items)
+(define (list-reverse-my l)
+  (if(null? l)
+     '()
+     (list-append
+      (list-reverse (cdr l))
+      (list (car l)))))
+
+(define (list-map-my proc items)
   (if (null? items)
-      nil
+      '()
       (cons (proc (car items))
 	    (list-map proc (cdr items)))))
+
+(define (count-leaves-my root)
+  (cond ((null? root) 0)
+	((not (pair? root)) 1)
+	(else (+ (count-leaves (car root))
+		 (count-leaves (cdr root))))))
+
+(define (filter-my predicate-elem sequence)
+  (cond ((null? sequence) '())
+	((predicate-elem (car sequence))
+	 (cons (car sequence)
+	       (filter-my predicate-elem (cdr sequence))))
+	(else (filter-my predicate-elem (cdr sequence)))))
+
+(define (enumerate-interval low high)
+  (if (> low high)
+      '()
+      (cons low (enumerate-interval (low + 1) high))))
+
 
