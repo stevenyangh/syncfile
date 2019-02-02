@@ -203,13 +203,13 @@
 (define (list-append-my list-1 list-2); to be adjusted to iteration version
   (if (null? list-1)
       list-2
-      (cons (car list-1) (list-append (cdr list-1) list-2))))
+      (cons (car list-1) (list-append-my (cdr list-1) list-2))))
 
 (define (list-reverse-my l)
   (if(null? l)
      '()
-     (list-append
-      (list-reverse (cdr l))
+     (list-append-my
+      (list-reverse-my (cdr l))
       (list (car l)))))
 
 (define (list-map-my proc items)
@@ -224,6 +224,18 @@
 	(else (+ (count-leaves (car root))
 		 (count-leaves (cdr root))))))
 
+(define (fringe tree)
+  (if (null? tree)
+      '()
+      (if (pair? tree
+(define (fringe-symmetry tree)
+  (if (null? tree)
+      '()
+      (if (pair? tree)
+	  (list-append-my (fringe-symmetry (cdr tree))
+			  (fringe-symmetry (car tree)))
+	  (list tree))))
+
 (define (filter-my predicate-elem sequence)
   (cond ((null? sequence) '())
 	((predicate-elem (car sequence))
@@ -235,5 +247,3 @@
   (if (> low high)
       '()
       (cons low (enumerate-interval (low + 1) high))))
-
-
