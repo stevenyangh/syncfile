@@ -212,6 +212,15 @@
       (list-reverse-my (cdr l))
       (list (car l)))))
 
+(define (deep-reverse tree)
+  (if (null? tree)
+      '()
+      (if (pair? tree)
+	  (list-append-my (deep-reverse (cdr tree))
+			  (list (deep-reverse (car tree))))
+	  tree)))
+       
+
 (define (list-map-my proc items)
   (if (null? items)
       '()
@@ -227,7 +236,11 @@
 (define (fringe tree)
   (if (null? tree)
       '()
-      (if (pair? tree
+      (if (pair? tree)
+	  (list-append-my (fringe (car tree))
+			  (fringe (cdr tree)))
+	  (list tree))))
+
 (define (fringe-symmetry tree)
   (if (null? tree)
       '()
