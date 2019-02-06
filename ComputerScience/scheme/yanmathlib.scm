@@ -273,6 +273,9 @@
        (* x higher-term)))
   (accumulate horner-op 0 coeff-list))
 
-(define (count-leaves tree)
-  (define (count-leaves-op car-branch higher-items)
-    (map count-leaves 
+(define (count-leaves-my tree)
+  (define (cl-op prev-branch following)
+    (if (pair? prev-branch)
+    
+  (accumulate cl-op 0 (map count-leaves-my tree)))
+	    
