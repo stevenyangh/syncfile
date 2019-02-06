@@ -6,6 +6,9 @@ typedef struct DATE{
     int dd;
     int M;
     int cycle;
+  int openNum;
+  int dailyStatus;
+  int optionStatus;
 }date;
 
 void readDate(FILE *pfile, &today);
@@ -46,7 +49,7 @@ int main()
     //optional task
     dice(y);
     dice(z);
-    if(rec.M == 0 && reccycle == 0)
+    if(rec.M == 0 && rec.cycle == 0)
     {
 	p_first_day(y, z);
 	
@@ -71,7 +74,7 @@ int main()
 	    dice(x);
 	    dice(y);
 	    dice(z);
-	    p_
+	    p_siss();
 		b_end();
 	}
 	else if(index > 125 && index <= 249)

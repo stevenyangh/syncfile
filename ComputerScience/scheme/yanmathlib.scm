@@ -266,3 +266,13 @@
     (cons prev-item next-item))
   (accumulate append-op list-2 list-1))
 
+
+(define (polynomial-horner-eval coeff-list x)
+  (define (horner-op this-coeff higher-term)
+    (+ this-coeff
+       (* x higher-term)))
+  (accumulate horner-op 0 coeff-list))
+
+(define (count-leaves tree)
+  (define (count-leaves-op car-branch higher-items)
+    (map count-leaves 
