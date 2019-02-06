@@ -191,19 +191,6 @@
 	(car items)
 	(ref-iter (cdr items) (+ i 1))))
   (ref-iter items 0))
-	
-
-(define (list-length-my items)
-  (define (len-iter items i)
-    (if (null? items)
-	i
-	(len-iter (cdr items) (+ i 1))))
-  (len-iter items 0))
-
-(define (list-append-my list-1 list-2); to be adjusted to iteration version
-  (if (null? list-1)
-      list-2
-      (cons (car list-1) (list-append-my (cdr list-1) list-2))))
 
 (define (list-reverse-my l)
   (if(null? l)
@@ -216,16 +203,10 @@
   (if (null? tree)
       '()
       (if (pair? tree)
-	  (list-append-my (deep-reverse (cdr tree))
-			  (list (deep-reverse (car tree))))
+	  (list-append-my
+	   (deep-reverse (cdr tree))
+	   (list (deep-reverse (car tree))))
 	  tree)))
-       
-
-(define (list-map-my proc items)
-  (if (null? items)
-      '()
-      (cons (proc (car items))
-	    (list-map proc (cdr items)))))
 
 (define (count-leaves-my root)
   (cond ((null? root) 0)
@@ -259,4 +240,29 @@
 (define (enumerate-interval low high)
   (if (> low high)
       '()
-      (cons low (enumerate-interval (low + 1) high))))
+      (cons low (enumerate-interval (+ low 1) high))))
+
+(define (accumulate op initial sequence)
+  (if (null? sequence)
+      initial
+      (op
+       (car sequence)
+       (accumulate op initial (cdr sequence)))))
+
+(define (list-map-my proc sequence)
+  (define (map-op prev-item new-sequence)
+    (cons (proc prev-item) new-sequence))
+  (accumulate map-op '() sequence))
+
+(define (list-length-my items)
+  (define (len-iter items i)
+    (if (null? items)
+	i
+	(len-iter (cdr items) (+ i 1))))
+  (len-iter items 0))
+
+(define (list-append-my list-1 list-2)
+  (define (append-op prev-item next-item)
+    (cons prev-item next-item))
+  (accumulate append-op list-2 list-1))
+
