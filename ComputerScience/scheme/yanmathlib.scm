@@ -208,12 +208,6 @@
 	   (list (deep-reverse (car tree))))
 	  tree)))
 
-(define (count-leaves-my root)
-  (cond ((null? root) 0)
-	((not (pair? root)) 1)
-	(else (+ (count-leaves (car root))
-		 (count-leaves (cdr root))))))
-
 (define (fringe tree)
   (if (null? tree)
       '()
@@ -274,8 +268,23 @@
   (accumulate horner-op 0 coeff-list))
 
 (define (count-leaves-my tree)
-  (define (cl-op prev-branch following)
-    (if (pair? prev-branch)
-    
-  (accumulate cl-op 0 (map count-leaves-my tree)))
-	    
+  (define (cl-proc tree)
+    (if (pair? tree)
+	(count-leaves-my tree)
+	1))
+  (accumulate + 0 (map cl-proc tree)))
+
+(define (accumulate-n op init seq-of-seq)
+  (if (null? seq-of-seq)
+      '()
+      (cons (accumulate op init (map car seq-of-seq))
+	    (accumulate-n op init
+			  (if (null? (cdr (car seq-of-seq)))
+			      '()
+			      (map cdr seq-of-seq))))))
+
+					;test info
+(define test-list-1 (enumerate-interval 0 20))
+(define test-tree-1 (list 1 2 3 4 (list 5 6 7 (list 8 9) 10 11 12 (list 13 14 15 16 17 (list 18) 19) 20 21 22 23) 24 25 (list 26 27 28)))
+
+(define test-array-1 (list (list 1 2 3 4) (list 5 6 7 8) (list 9 10 11 12)))
