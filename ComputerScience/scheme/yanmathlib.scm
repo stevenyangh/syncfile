@@ -243,11 +243,6 @@
        (car sequence)
        (accumulate op initial (cdr sequence)))))
 
-(define (list-map-my proc sequence)
-  (define (map-op prev-item new-sequence)
-    (cons (proc prev-item) new-sequence))
-  (accumulate map-op '() sequence))
-
 (define (list-length-my items)
   (define (len-iter items i)
     (if (null? items)
@@ -259,7 +254,6 @@
   (define (append-op prev-item next-item)
     (cons prev-item next-item))
   (accumulate append-op list-2 list-1))
-
 
 (define (polynomial-horner-eval coeff-list x)
   (define (horner-op this-coeff higher-term)
@@ -282,6 +276,13 @@
 			  (if (null? (cdr (car seq-of-seq)))
 			      '()
 			      (map cdr seq-of-seq))))))
+
+(define (list-map-my proc sequence)
+  (define (map-op prev-item new-sequence)
+    (cons (proc prev-item) new-sequence))
+  (accumulate map-op '() sequence)) 
+
+
 
 					;test info
 (define test-list-1 (enumerate-interval 0 20))
