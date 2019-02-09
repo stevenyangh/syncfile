@@ -282,7 +282,18 @@
     (cons (proc prev-item) new-sequence))
   (accumulate map-op '() sequence)) 
 
+					;need tesr
 
+(define (dot-product v w)
+  (accumulate + 0 (map * v w)))
+
+(define (matrix-*-vector m v)
+  (map (lambda (m-row)
+	 (dot-product m-row v))
+       m))
+
+(define (transpose m)
+  (accumulate-n 
 
 					;test info
 (define test-list-1 (enumerate-interval 0 20))
