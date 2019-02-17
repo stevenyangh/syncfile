@@ -293,7 +293,7 @@
        m))
 
 (define (transpose m)
-  (accumulate-n 
+  (accumulate-n cons '() m))
 
 					;test info
 (define test-list-1 (enumerate-interval 0 20))
