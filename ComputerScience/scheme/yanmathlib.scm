@@ -295,6 +295,30 @@
 (define (transpose m)
   (accumulate-n cons '() m))
 
+					;construct of general-system
+(make-complex-number-real-imag (real-part z) (imag-part z))
+
+(make-complex-number-angular (magnitude z) (angle z))
+  
+
+(define (add-complex z1 z2)
+  (make-complex-number-real-imag (+ (real-part z1) (real-part z2))
+				 (+ (imag-part z1) (imag-part z2))))
+
+(define (sub-complex z1 z2)
+  (make-complex-number-real-imag (- (real-part z1) (real-part z2))
+				 (- (imag-part z1) (imag-part z2))))
+
+(define (mul-complex z1 z2)
+  (make-complex-number-angular (* (magnitude z1) (magnitude z2))
+			       (+ (angle z1) (angle z2))))
+
+(define (div-complex z1 z2)
+  (make-complex-number-angular (/ (magnitude z1) (magnitude z2))
+			       (- (angle z1) (angle z2))))
+
+
+
 					;test info
 (define test-list-1 (enumerate-interval 0 20))
 (define test-tree-1 (list 1 2 3 4 (list 5 6 7 (list 8 9) 10 11 12 (list 13 14 15 16 17 (list 18) 19) 20 21 22 23) 24 25 (list 26 27 28)))
