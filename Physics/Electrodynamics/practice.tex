@@ -18,11 +18,17 @@ We will solve $E(x)$ first, and then use $V(x) = -\int_{\infty}^{x} E(x) \mathrm
 \end{eqution}
 Which we will build up a integral:
 \begin{equation}
-  E(x) = \int
-
+  \int_{(l)} \mathrm{d} E(x) =
+  \int_{-L}^{L}
+  \frac{\lambda \mathrm{d} l}{4 \pi \epsilon_0 (x^2 + l^2)} \cdot
+  \frac{x}{\sqrt{x^2 + l^2}}  
 \end{equation}
-
-
+And simplifie it to:
+\begin{equation}
+  E(x) =
+  \int_{-L}^{L} \frac{x \lambda \mathrm{d} l}{4 \pi \epsilon_0 (x^2 + l^2)^\frac{3}{2}}
+  = \frac{x \lambda}{4 \pi \epsilon_0} \int_{L}^{-L} \frac{\mathrm{d} l}{(x^2 + l^2)^\frac{3}{2}}
+\end{equation}
 Solution 2:
 
 
