@@ -197,7 +197,7 @@
      '()
      (list-append-my
       (list-reverse-my (cdr l))
-      (list (car l)))))
+      (list (car l)))))()
 
 (define (deep-reverse tree)
   (if (null? tree)
