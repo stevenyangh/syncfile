@@ -1,0 +1,10 @@
+phonetique
+
+* speak principle 1
+** from letter combine to sound
+   -a
+** from sound to letter combine
+* speak principle 2
+** override
+** elevation
+   

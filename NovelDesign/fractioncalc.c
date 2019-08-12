@@ -198,10 +198,26 @@ frac add(frac x, frac y){
         return result;
     }    
 }
-frac neg(frac x);
-frac mns(frac x, frac y);
+frac neg(frac x){
+  if(x.up == 0)
+  {
+      return x;
+  }
+  else
+  {
+      x.pos = !x.pos;
+      return x;
+  }
+}
+frac mns(frac x, frac y)
+{
+    return add(x, neg(y));
+}
 
-frac mul(frac x, frac y);
+frac mul(frac x, frac y)
+{
+    
+}
 frac rpc(frac x);
 frac dvd(frac x, frac y);
 
