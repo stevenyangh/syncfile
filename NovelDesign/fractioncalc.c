@@ -1,3 +1,4 @@
+#include<stdio.h>
 typedef struct{
     int pos;
     int up;
@@ -76,7 +77,7 @@ int lcf(int a, int b){
 }
 
 void outputfrac(frac x){
-    if(x.pos = 0 && x.up != 0)
+    if(x.pos == 0 && x.up != 0)
     {
         printf("-%d/%d", x.up, x.down);
     }
@@ -121,8 +122,8 @@ frac makefrac_nogcd(int nup, int ndown){
     }
     else 
     {
-        newf.up = nup;
-        newf.down = ndown;
+        newf.up = abs(nup);
+        newf.down = abs(ndown);
         newf.pos = nup > 0 == ndown > 0;
         return newf;
     }
@@ -153,7 +154,7 @@ frac add(frac x, frac y){
     else 
     {
         gcdd = gcd(x.down, y.down);
-        lcfd = lcf(x.down, y.down, gcdd);
+        lcfd = lcf_smp(x.down, y.down, gcdd);
         prodxu = y.down / gcdd * x.up;
         prodyu = x.down / gcdd * y.up;
         if(x.pos == y.pos)
@@ -199,27 +200,59 @@ frac add(frac x, frac y){
     }    
 }
 frac neg(frac x){
-  if(x.up == 0)
-  {
-      return x;
-  }
-  else
-  {
-      x.pos = !x.pos;
-      return x;
-  }
+    if(x.up == 0)
+    {
+        return x;
+    }
+    else
+    {
+        x.pos = !x.pos;
+        return x;
+    }
 }
-frac mns(frac x, frac y)
-{
+frac mns(frac x, frac y){
     return add(x, neg(y));
 }
 
 frac mul(frac x, frac y)
 {
-    
+    int exch;
+    if(x.up == 0 || y.up == 0)
+    {
+        return fracint(0);
+    }
+    else
+    {
+        exch = x.up;
+        x.up = y.up;
+        y.up = exch;
+        x = reduct(x);
+        y = reduct(y);
+        x.up = x.up * y.up;
+        x.down = x.down * y.down;
+        x.pos = x.pos == y.pos;
+        return x;
+    } 
 }
-frac rpc(frac x);
-frac dvd(frac x, frac y);
+frac rpc(frac x)
+{
+    int exch;
+    if(x.up == 0)
+    {
+        printf("\n***   Error, 0 can not be used as divisor. A 0/1 has been put into return.   ***\n");
+        return fracint(0);
+    }
+    else
+    {
+        exch = x.up;
+        x.up = x.down;
+        x.down = exch;
+        return x;
+    }
+}
+frac dvd(frac x, frac y){
+    return mul(x, rpc(y));
+}
 
 
 
