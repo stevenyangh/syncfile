@@ -1,0 +1,19 @@
+* verbe
+** COD
+*** certain
+    me te le/la nous vous les
+*** uncertain  
+    en(keep number)
+** COI
+*** a/pour   
+**** person
+     me te lui nous vous leur
+**** object
+     le/la/les
+*** de    
+**** person
+     de + moi/toi/lui/nous/vous/eux
+**** object
+     en
+** etre + de nom.
+   en

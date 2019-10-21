@@ -1,0 +1,318 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{listings}
+\begin{document}
+The KMP-algorithm is confusing under interpretation in our book. Main issue, the confusing -1 at the begining of the next[] array, the wasted effort since we find new match at kmp(i = pos + 1, j = 0), when j may be more than 0, and why kmp and get\_next looks so fucking similar.
+
+Let's skip the $3^{rd}$ problem and focus on former 2. observe such condition:
+\begin{lstlisting}[frame = shadowbox]
+{0
+|a|bcdefghijklmn
+|g|h
+}0
+
+{0
+|a|bcdefghijklmn
+| |gh
+}-1
+
+{1
+a|b|cdefghijklmn
+ |g|h
+}0
+
+{1
+a|b|cdefghijklmn
+ | |gh
+}-1
+
+{2
+ab|c|defghijklmn
+  |g|h
+}0
+
+{2
+ab|c|defghijklmn
+  | |gh
+}-1
+
+{3
+abc|d|efghijklmn
+   |g|h
+}0
+
+{3
+abc|d|efghijklmn
+   | |gh
+}-1
+
+{4
+abcd|e|fghijklmn
+    |g|h
+}0
+
+{4
+abcd|e|fghijklmn
+    | |gh
+}-1
+
+{5
+abcde|f|ghijklmn
+     |g|h
+}0
+
+{5
+abcde|f|ghijklmn
+     | |gh
+}-1
+
+{6
+abcdef|g|hijklmn
+      |g|h
+}0
+
+{7
+abcdefg|h|ijklmn
+      g|h|
+}1
+
+{8
+abcdefgh|i|jklmn
+      gh
+}2
+
+{8
+abcdefgh|i|jklmn
+        |g|h
+}0
+
+{8
+abcdefgh|i|jklmn
+        | |gh
+}-1
+
+{9
+abcdefghi|j|klmn
+         |g|h
+}0
+
+{9
+abcdefghi|j|klmn
+         | |gh
+}-1
+
+{10
+abcdefghij|k|lmn
+          |g|h
+}0
+
+{10
+abcdefghij|k|lmn
+          | |gh
+}-1
+
+{11
+abcdefghijk|l|mn
+           |g|h
+}0
+
+{11
+abcdefghijk|l|mn
+           | |gh
+}-1
+
+{12
+abcdefghijkl|m|n
+            |g|h
+}0
+
+{12
+abcdefghijkl|m|n
+            | |gh
+}-1
+
+{13
+abcdefghijklm|n|
+             |g|h
+}0
+
+{13
+abcdefghijklm|n|
+             | |gh
+}-1
+
+{14
+abcdefghijklmn
+              |g|h
+}0
+
+7                
+\end{lstlisting}
+
+And such condition:
+
+\begin{lstlisting}[frame = shadowbox]
+{0
+|a|bcabcabcabcabcabcabc
+|a|bcabcabc
+}0
+
+{1
+a|b|cabcabcabcabcabcabc
+a|b|cabcabc
+}1
+
+{2
+ab|c|abcabcabcabcabcabc
+ab|c|abcabc
+}2
+
+{3
+abc|a|bcabcabcabcabcabc
+abc|a|bcabc
+}3
+
+{4
+abca|b|cabcabcabcabcabc
+abca|b|cabc
+}4
+
+{5
+abcab|c|abcabcabcabcabc
+abcab|c|abc
+}5
+
+{6
+abcabc|a|bcabcabcabcabc
+abcabc|a|bc
+}6
+
+{7
+abcabca|b|cabcabcabcabc
+abcabca|b|c
+}7
+
+{8
+abcabcab|c|abcabcabcabc
+abcabcab|c|
+}8
+
+{9
+abcabcabc|a|bcabcabcabc
+abcabcabc
+}9
+
+{9
+abcabcabc|a|bcabcabcabc
+   abcabc|a|bc
+}6
+
+{10
+abcabcabca|b|cabcabcabc
+   abcabca|b|c
+}7
+
+{11
+abcabcabcab|c|abcabcabc
+   abcabcab|c|
+}8
+
+{12
+abcabcabcabc|a|bcabcabc
+   abcabcabc
+}9
+
+{12
+abcabcabcabc|a|bcabcabc
+      abcabc|a|bc
+}6
+
+{13
+abcabcabcabca|b|cabcabc
+      abcabca|b|c
+}7
+
+{14
+abcabcabcabcab|c|abcabc
+      abcabcab|c|
+}8
+
+{15
+abcabcabcabcabc|a|bcabc
+      abcabcabc
+}9
+
+{15
+abcabcabcabcabc|a|bcabc
+         abcabc|a|bc
+}6
+
+{16
+abcabcabcabcabca|b|cabc
+         abcabca|b|c
+}7
+
+{17
+abcabcabcabcabcab|c|abc
+         abcabcab|c|
+}8
+
+{18
+abcabcabcabcabcabc|a|bc
+         abcabcabc
+}9
+
+{18
+abcabcabcabcabcabc|a|bc
+            abcabc|a|bc
+}6
+
+{19
+abcabcabcabcabcabca|b|c
+            abcabca|b|c
+}7
+
+{20
+abcabcabcabcabcabcab|c|
+            abcabcab|c|
+}8
+
+{21
+abcabcabcabcabcabcabc
+            abcabcabc
+}9
+
+1
+4
+7
+10
+13
+\end{lstlisting}
+
+If we use the way of dealing with this condition on the book, we will use following codes:
+
+\begin{lstlisting}[language = C++, frame = shadowbox, basicstyle = \ttfamily]
+void KMP_stream(char s[], int ls, int match[],
+                char t[], int lt, int next[])
+{
+    int i = -1, j = -1;
+    while (i < ls)
+    {
+	if(j == -1 || s[i] == t[j])
+        {
+        	
+	    i++;
+	    j++;
+	    //displayMatchPos(s, ls, t, lt, i, j);
+	    match[i] = j;
+        }
+	else
+	{
+            j = next[j];
+	    //displayMatchPos(s, ls, t, lt, i, j);	 
+	}
+    }
+}
+\end{lstlisting}
+
+\end{document}
