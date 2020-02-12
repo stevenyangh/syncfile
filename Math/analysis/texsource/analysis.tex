@@ -5,7 +5,7 @@
 \date{\today}
 
 \usepackage{amsmath}
-\newtheorem{def}{Define}[chapter]
+
 \begin{document}
 
 \frontmatter
@@ -35,7 +35,22 @@ A topo
 Measure is a special system on a topology space.
 To show the internal structure of `volume` of specific space, let's introduce '$\sigma$-algebra'.
 
+\part{Harmonic Analysis}
+\chapter{Fourier Analysisi}
+First, consider 1-dimension condition:
+$\forall p \in [1, \infty),
+\forall f \in L^p([a, a + L]),
+\forall \epsilon > 0,
+\exists T_n(x) = \sum_{k = -n}^n a_k L^{-1/2} exp(\frac{2 \pi i n(x - a)}{L}),
+that |f - T_n|_p < \epsilon$, 
+which is to say,
+$lim_{n \rightarrow \infty}|f - T_n| = 0$.
 
-A $\sigma$-algebra  
+Intuitively, we can suspect that under certain condition, since in fourier series,
+$a_n = (2L)^{-1/2} \int_{-L}^{L} f(y) exp(\frac{-2 \pi i n y}{2 L}) dy.$
+So that
+$f(x) = (2L)^{-1} \sum_{n = -\infty}^{\infty} exp(\frac{2 \pi inx}{2L}) \int_{-L}^{L} f(y) exp(\frac{-2 \pi inx}{2L})dy$
+which may equal to($\xi = \frac{n}{2L}$)
+$f(x) = \int$
 
 \end{document}
